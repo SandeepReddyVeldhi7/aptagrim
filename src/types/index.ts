@@ -16,10 +16,6 @@ export interface Job {
   candidates: Candidate[];
 }
 
-export interface JobDetailsProps {
-  job: Job;
-}
-
 export interface FormData {
   title: string;
   location: string;
@@ -27,18 +23,19 @@ export interface FormData {
   status: string;
 }
 
-export interface register {
+export interface RegisterFormValues {
   name: string;
   email: string;
   password: string;
-  message: string;
 }
 
-export interface login {
+export interface LoginFormValues {
   email: string;
   password: string;
 }
 
-export interface AddJobProps {
-  onClick: () => void;
+export interface NavItem {
+  id: string;
+  name: string;
+  to: string;
 }

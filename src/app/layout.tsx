@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Header from "../components/Header";
-import BodyHeader from "../components/BodyHeader";
+import "@/src/styles/globals.css";
+import Header from "@/src/components/Header";
+import BodyHeader from "@/src/components/BodyHeader";
+import { ReduxProvider } from "@/src/redux";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
-import { SearchProvider } from "../context/searchContext";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
@@ -27,20 +27,17 @@ export default async function MainLayout({
 
   return (
     <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-      <SearchProvider>
-        {session?.user && (
-          <div className="flex flex-col gap-2">
-            <Header />
-            <BodyHeader />
-          </div>
-        )}
-
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ReduxProvider>
+          {session?.user && (
+            <div className="flex flex-col gap-2">
+              <Header />
+              <BodyHeader />
+            </div>
+          )}
           {children}
-      </SearchProvider>
-        </body>
+        </ReduxProvider>
+      </body>
     </html>
   );
 }
