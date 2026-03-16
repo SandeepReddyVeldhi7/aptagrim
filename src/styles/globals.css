@@ -1,76 +1,18 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    /* Primary Colors */
-    --color-primary: #9333ea; /* purple-600 */
-    --color-primary-light: #e9d5ff; /* purple-200 */
-    --color-primary-dark: #6d28d9; /* purple-700 */
 
-    /* Secondary Colors */
-    --color-secondary: #4f46e5; /* indigo-600 */
-    --color-secondary-light: #e0e7ff; /* indigo-200 */
+@theme{
+    --color-primary: #9333ea; 
+    --color-secondary:#FFFFFF;
+    --color-primary-red:#fb2c36 ;
+    --color-primary-gray: #6a7282;    
+    --color-secondary-gray: #d1d5dc; 
+    --color-primary-blue:#4f39f6;
 
-    /* Neutral Colors */
-    --color-bg: #ffffff;
-    --color-bg-secondary: #f3f4f6; /* gray-100 */
-    --color-border: #e5e7eb; /* gray-200 */
-    --color-text: #111827; /* gray-900 */
-    --color-text-secondary: #6b7280; /* gray-500 */
-    --color-text-muted: #9ca3af; /* gray-400 */
 
-    /* States */
-    --color-success: #10b981; /* emerald-600 */
-    --color-warning: #f59e0b; /* amber-600 */
-    --color-error: #ef4444; /* red-500 */
-    --color-info: #3b82f6; /* blue-600 */
+    
 
-    /* Spacing */
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
-    --spacing-2xl: 3rem;
-
-    /* Border Radius */
-    --radius-sm: 0.375rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
-
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-
-    /* Font Sizes */
-    --font-size-xs: 0.75rem;
-    --font-size-sm: 0.875rem;
-    --font-size-base: 1rem;
-    --font-size-lg: 1.125rem;
-    --font-size-xl: 1.25rem;
-    --font-size-2xl: 1.5rem;
-
-    /* Transitions */
-    --transition-fast: 150ms;
-    --transition-base: 250ms;
-    --transition-slow: 300ms;
-  }
-
-  /* Dark mode */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --color-bg: #1f2937;
-      --color-bg-secondary: #111827;
-      --color-border: #374151;
-      --color-text: #f3f4f6;
-      --color-text-secondary: #d1d5db;
-      --color-text-muted: #9ca3af;
-    }
-  }
-}
-
+};
 @layer components {
   .btn-primary {
     @apply px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors;
@@ -81,10 +23,28 @@
   }
 
   .card {
-    @apply bg-white border border-gray-200 rounded-lg shadow-sm p-4;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-4 gap-4 mx-2 mt-2 p-2 shadow-xl rounded;
   }
 
   .input-field {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600;
+    @apply w-full border rounded-lg px-3 py-2;
+  }
+  .error-field {
+    @apply text-red-500 text-sm mt-1
+  }
+
+  .job-headerFilter {
+  @apply  w-4 h-4 text-primary cursor-pointer hover:opacity-70
+  }
+
+  .job-Title {
+    @apply font-semibold text-gray-900 truncate
+  }
+
+  .isActive {
+    @apply border-b-2 border-primary font-semibold
+  }
+  .notActive {
+    @apply text-black   
   }
 }

@@ -32,7 +32,7 @@ export const LoginForm = () => {
         onSubmit={handleSubmit(handleLogin)}
         className="card w-full max-w-md"
       >
-        <h2 className="text-2xl font-bold text-center mb-6 text-text">Login</h2>
+        <h2 className="text-2xl font-bold text-center mb-6 ">Login</h2>
         
         <div className="mb-4">
           <Controller
@@ -45,10 +45,10 @@ export const LoginForm = () => {
                   {...field}
                   type="email"
                   placeholder="Email"
-                  className="w-full border rounded-lg px-3 py-2"
+                  className="input-field"
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                  <p className="error-field">{errors.email.message}</p>
                 )}
               </>
             )}
@@ -66,10 +66,10 @@ export const LoginForm = () => {
                   {...field}
                   type="password"
                   placeholder="Password"
-                  className="w-full border rounded-lg px-3 py-2"
+                  className="input-field"
                 />
                 {errors.password && (
-                  <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+                  <p className="error-field">{errors.password.message}</p>
                 )}
               </>
             )}
@@ -85,7 +85,7 @@ export const LoginForm = () => {
         </button>
         
         <div className="mt-4 text-center">
-          <span className="text-sm text-text-secondary">
+          <span className="text-sm -secondary">
             Don't have an account?{" "}
             <Link href="/register" className="text-primary hover:underline">
               Register

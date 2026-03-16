@@ -1,40 +1,47 @@
 "use client";
 
-import React, { useState } from "react";
-import { FaArrowLeft } from "react-icons/fa6";
+import React, { useEffect, useState } from "react";
 import { useAppDispatch } from "@/src/hooks/useRedux";
 import { setSearchTerm } from "@/src/redux/slices/searchSlice";
-
+import { ArrowLeft } from "lucide-react";
 interface BodyHeaderProps {
   title?: string;
 }
 
-const BodyHeader: React.FC<BodyHeaderProps> = ({ title = "Default" }) => {
+const BodyHeader: React.FC<BodyHeaderProps> = ({ }) => {
   const dispatch = useAppDispatch();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
+  // const [delay,setDelay]=useState()
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearch(value);
-    dispatch(setSearchTerm(value));
   };
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      // setDelay(search);
+      dispatch(setSearchTerm(search));
+    }, 500);
+    return () => clearTimeout(timeoutId);
+  }, [search, 300]);
 
   return (
     <div className="flex">
-      <div className="flex gap-6 justify-between bg-primary-dark p-4 w-full items-center">
+      <div className="flex gap-6  justify-between bg-primary p-4 w-full items-center">
         <div className="flex justify-start items-center gap-6 w-[30%]">
           <button className="bg-bg h-fit items-center rounded-full p-2 hover:bg-bg-secondary transition-colors">
-            <FaArrowLeft className="text-sm text-text" />
+            <ArrowLeft className="  " />
           </button>
-          <h1 className="text-2xl font-bold text-white">{title}</h1>
+          <h1 className="text-2xl font-bold text-secondary ">Job Posting</h1>
         </div>
 
-        <div className="flex justify-center relative items-center w-[40%]">
+        <div className="flex justify-center bg-secondary relative items-center w-[40%]">
           <input
             type="text"
             value={search}
             onChange={handleSearch}
-            className="p-3 w-full rounded-sm bg-bg text-text outline-none focus:ring-2 focus:ring-primary"
+            className="p-3 w-full rounded-sm bg-bg  outline-none "
             placeholder="Search by Job title, location, type or ID"
           />
           <div className="absolute flex top-4 right-2">
@@ -55,9 +62,9 @@ const BodyHeader: React.FC<BodyHeaderProps> = ({ title = "Default" }) => {
           </div>
         </div>
 
-        <div className="flex justify-end text-white items-end w-[20%]">
+        <div className="flex justify-end text-secondary  items-end w-[20%]">
           <div className="flex flex-col">
-            <span className="text-white/70 font-medium">AI Powered by</span>
+            <span className="text-secondary/70 font-medium">AI Powered by</span>
             <h1 className="text-3xl font-semibold">psyHire.</h1>
           </div>
         </div>

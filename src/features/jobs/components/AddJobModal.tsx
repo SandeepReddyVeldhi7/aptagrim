@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useRef } from "react";
 import { FormData } from "@/src/types";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
@@ -58,7 +58,7 @@ export const AddJobModal: React.FC<AddJobModalProps> = ({
         className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg animate-in zoom-in-95 duration-200"
       >
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold text-text">Add Job</h2>
+          <h2 className="text-xl font-bold ">Add Job</h2>
           <button
             onClick={() => {
               onClose();
@@ -72,7 +72,7 @@ export const AddJobModal: React.FC<AddJobModalProps> = ({
 
         <form onSubmit={handleSubmit(onSubmitHandler)} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-text-secondary mb-1">
+            <label className="block text-sm font-medium -secondary mb-1">
               Job Title
             </label>
             <Controller
@@ -91,17 +91,14 @@ export const AddJobModal: React.FC<AddJobModalProps> = ({
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-text-secondary mb-1">
+            <label className="block text-sm font-medium -secondary mb-1">
               Job Type
             </label>
             <Controller
               control={control}
               name="type"
               render={({ field }) => (
-                <select
-                  {...field}
-                  className="input-field"
-                >
+                <select {...field} className="input-field">
                   <option value="Full-time">Full-time</option>
                   <option value="Part-time">Part-time</option>
                   <option value="Contract">Contract</option>
@@ -111,17 +108,14 @@ export const AddJobModal: React.FC<AddJobModalProps> = ({
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-text-secondary mb-1">
+            <label className="block text-sm font-medium -secondary mb-1">
               Status
             </label>
             <Controller
               control={control}
               name="status"
               render={({ field }) => (
-                <select
-                  {...field}
-                  className="input-field"
-                >
+                <select {...field} className="input-field">
                   <option value="Draft">Draft</option>
                   <option value="Active">Active</option>
                   <option value="Paused">Paused</option>
@@ -131,7 +125,7 @@ export const AddJobModal: React.FC<AddJobModalProps> = ({
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-text-secondary mb-1">
+            <label className="block text-sm font-medium -secondary mb-1">
               Location
             </label>
             <Controller
@@ -160,10 +154,7 @@ export const AddJobModal: React.FC<AddJobModalProps> = ({
             >
               Cancel
             </button>
-            <button
-              type="submit"
-              className="btn-primary"
-            >
+            <button type="submit" className="btn-primary">
               Add Job
             </button>
           </div>

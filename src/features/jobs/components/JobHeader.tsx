@@ -1,5 +1,6 @@
 import React from "react";
-import { Copy } from "lucide-react";
+import { Copy , Info,
+  MoreVertical,} from "lucide-react";
 
 interface JobHeaderProps {
   jobId: string;
@@ -11,18 +12,28 @@ export const JobHeader: React.FC<JobHeaderProps> = ({
   jobId,
   jobTitle,
   onCheck,
+  
 }) => {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2 min-w-0">
         <input
           type="checkbox"
-          className="accent-purple-600 cursor-pointer"
+          className="primary cursor-pointer"
           onChange={(e) => onCheck?.(e.target.checked)}
         />
-        <h3 className="font-semibold text-gray-900 truncate">{jobTitle}</h3>
+        <h3 className="job-Title">{jobTitle}</h3>
       </div>
-      <Copy className="w-4 h-4 text-purple-600 cursor-pointer hover:opacity-70" />
+     
+      <div className="flex items-center gap-1.5 "> 
+         <Copy className="job-headerFilter" />
+          <Info className="job-headerFilter" />
+          <MoreVertical
+            className="job-headerFilter"
+          
+          />
+        </div>
+      
     </div>
   );
 };

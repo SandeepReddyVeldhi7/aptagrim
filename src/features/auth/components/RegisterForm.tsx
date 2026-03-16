@@ -36,7 +36,7 @@ export const RegisterForm = () => {
         onSubmit={handleSubmit(handleRegister)}
         className="card w-full max-w-lg"
       >
-        <h2 className="text-2xl font-bold text-center mb-6 text-text">Create Account</h2>
+        <h2 className="text-2xl font-bold text-center mb-6 ">Create Account</h2>
 
         <div className="mb-4">
           <label className="block text-sm font-medium mb-1">Name</label>
@@ -53,7 +53,7 @@ export const RegisterForm = () => {
                   className="input-field"
                 />
                 {errors.name && (
-                  <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+                  <p className="error-field">{errors.name.message}</p>
                 )}
               </>
             )}
@@ -75,7 +75,7 @@ export const RegisterForm = () => {
                   className="input-field"
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                  <p className="error-field">{errors.email.message}</p>
                 )}
               </>
             )}
@@ -97,7 +97,7 @@ export const RegisterForm = () => {
                   className="input-field"
                 />
                 {errors.password && (
-                  <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+                  <p className="error-field">{errors.password.message}</p>
                 )}
               </>
             )}
@@ -113,7 +113,7 @@ export const RegisterForm = () => {
         </button>
 
         <div className="mt-4 text-center">
-          <p className="text-sm text-text-secondary">
+          <p className="text-sm -secondary">
             Already have an account?{" "}
             <Link href="/login" className="text-primary font-medium hover:underline">
               Login

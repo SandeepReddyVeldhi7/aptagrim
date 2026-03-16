@@ -1,11 +1,7 @@
 "use client";
-
 import { useState, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "@/src/hooks/useRedux";
-import {
-  addJob,
-  setSelectedStatus,
-} from "@/src/redux/slices";
+import { addJob, setSelectedStatus } from "@/src/redux/slices";
 import {
   JobList,
   JobFilter,
@@ -18,14 +14,13 @@ import { FormData, Job } from "@/src/types";
 export const JobsView = () => {
   const dispatch = useAppDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const jobs = useAppSelector((state) => state.jobs.jobs);
   const searchTerm = useAppSelector((state) => state.search.searchTerm);
   const selectedStatus = useAppSelector((state) => state.search.selectedStatus);
 
   const filteredJobs = useMemo(
     () => filterJobs(jobs, searchTerm, selectedStatus),
-    [jobs, searchTerm, selectedStatus]
+    [jobs, searchTerm, selectedStatus],
   );
 
   const handleAddJob = (data: FormData) => {
@@ -59,12 +54,10 @@ export const JobsView = () => {
     console.log(`Job ${jobId} checked: ${checked}`);
   };
 
-  const handleJobAction = (jobId: string, actionType: string) => {
-    console.log(`Job ${jobId} action: ${actionType}`);
-  };
+  const handleJobAction = (jobId: string, actionType: string) => {};
 
   return (
-    <main className="min-h-screen bg-bg-secondary">
+    <main className="min-h-screen bg-secondary">
       <div className="px-4">
         <div className="flex justify-between items-center mb-6">
           <JobFilter

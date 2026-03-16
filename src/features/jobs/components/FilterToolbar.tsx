@@ -1,8 +1,5 @@
 import React from "react";
-import { FaFilter } from "react-icons/fa6";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { AiFillAppstore } from "react-icons/ai";
-
+import { Funnel, Menu, LayoutGrid } from "lucide-react";
 interface FilterToolbarProps {
   onFilterClick?: () => void;
   onMenuClick?: () => void;
@@ -18,24 +15,24 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
     <div className="flex gap-6 mt-4">
       <button
         onClick={onFilterClick}
-        className="hover:text-purple-600 transition-colors"
+        className="hover:text-primary transition-colors"
         title="Filter"
       >
-        <FaFilter />
+        <Funnel />
       </button>
       <button
         onClick={onMenuClick}
-        className="hover:text-purple-600 transition-colors"
+        className="hover:text-primary transition-colors"
         title="Menu"
       >
-        <RxHamburgerMenu />
+        <Menu />
       </button>
       <button
         onClick={onViewChange}
-        className="text-red-500 hover:text-red-700 transition-colors"
+        className="text-primary hover:text-primary-red transition-colors"
         title="Change view"
       >
-        <AiFillAppstore />
+        <LayoutGrid />
       </button>
     </div>
   );

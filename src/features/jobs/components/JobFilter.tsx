@@ -13,16 +13,17 @@ const FilterButton: React.FC<FilterButtonProps> = ({
   onClick,
 }) => {
   return (
-    <button
-      onClick={() => onClick(status)}
-      className={`pb-2 transition-colors ${
-        isActive
-          ? "border-b-2 border-primary text-text font-semibold"
-          : "text-text-secondary hover:text-text"
-      } cursor-pointer`}
-    >
-      {status}
-    </button>
+    <div className="w-full  ">
+      <button
+        onClick={() => onClick(status)}
+        className={`pb-2  ${
+          isActive ? "isActive " : "notActive"
+        } cursor-pointer`}
+      >
+        {status}
+      </button>
+      <hr className=" border-primary absolute" />
+    </div>
   );
 };
 
@@ -36,15 +37,20 @@ export const JobFilter: React.FC<JobFilterProps> = ({
   onStatusChange,
 }) => {
   return (
-    <div className="flex gap-6 mt-4">
-      {JOB_STATUS_LIST.map((status) => (
-        <FilterButton
-          key={status}
-          status={status}
-          isActive={selectedStatus === status}
-          onClick={onStatusChange}
-        />
-      ))}
+    <div className="flex flex-col">
+      <div className="flex gap-6 mt-4 ">
+        {JOB_STATUS_LIST.map((status) => (
+          <FilterButton
+            key={status}
+            status={status}
+            isActive={selectedStatus === status}
+            onClick={onStatusChange}
+          />
+        ))}
+
+        <div></div>
+      </div>
+      {/* <hr className={` border-[#9333ea] border-2 h-1   `} /> */}
     </div>
   );
 };
